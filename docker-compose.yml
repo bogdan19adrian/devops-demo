@@ -1,0 +1,16 @@
+version: '3'
+services:
+  demo-devops:
+    container_name: demodevops
+    build: ./
+    restart: on-failure
+    ports:
+      - 8082:8080
+    networks:
+      - demo-devops
+
+
+networks:
+  demo-devops:
+    driver: bridge
+    attachable: true
