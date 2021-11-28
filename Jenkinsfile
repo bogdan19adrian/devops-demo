@@ -18,6 +18,15 @@ pipeline {
                 }
             }
         }
+        stage('Deploy') {
+            if (currentBuild.currentResult == 'SUCCESS') {
+                if (env.BRANCH_NAME == ‘main’) {
+                    sh 'echo "on main branch" '
+                } else {
+                    sh 'echo "on other branch" '
+                }
+            }
+        }
      }
     post {
        always {
